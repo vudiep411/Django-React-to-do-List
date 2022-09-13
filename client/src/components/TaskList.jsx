@@ -3,9 +3,12 @@ import React from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useSelector, useDispatch } from 'react-redux'
 import { deleteTask } from '../actions/tasks';
+import { useNavigate } from 'react-router-dom'
+
 const TaskList = ({searchText}) => {
   const dispatch = useDispatch()
   const tasks = useSelector((state) => state.tasks)
+  const navigate = useNavigate()
 
   const filtered = !searchText ? tasks :
   tasks?.filter((task) => {
@@ -25,7 +28,7 @@ const TaskList = ({searchText}) => {
     ) : (
       <Paper style={{ backgroundColor: 'rgb(64,64,64)'}}>
           {filtered?.map((task) => (
-            <div key={task.id}>
+            <div key={task.id} onClick={() => navigate(`/tasks/${task.id}`)}>
               <div style={{cursor: 'pointer', padding: '7px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <Typography variant='h6' style={{color: 'white'}}>{task.title}</Typography>
@@ -33,7 +36,7 @@ const TaskList = ({searchText}) => {
                 </div>
                   <Typography 
                     variant='body2' 
-                    style={{color: 'rgb(200,200,200)', marginBottom: '5px', overflow: 'hidden', whiteSpace: 'pre-line', textOverflow:'ellipsis'}}
+                    style={{color: 'rgb(200,200,200)', marginBottom: '5px', overflow: 'hidden', whiteSpace: 'no-wrap', textOverflow:'ellipsis'}}
                   >
                     {task.body}
                   </Typography>

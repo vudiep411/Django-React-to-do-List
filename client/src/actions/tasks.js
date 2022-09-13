@@ -9,6 +9,15 @@ export const getTasks = () => async(dispatch) => {
     }
 }
 
+export const getOneTask = (id) => async(dispatch) => {
+    try {
+        const { data } = await api.getOneTask(id)
+        dispatch({type: 'GET_ONE_TASK', payload: data})
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const addTask = (task) => async(dispatch) => {
     try {
         const { data } = await api.addTask(task)
