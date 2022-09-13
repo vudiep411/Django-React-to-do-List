@@ -61,7 +61,7 @@ const AddTasks = ({width}) => {
         <Box sx={style}>
             <div style={{justifyContent: 'center', display: 'flex'}}>
                 <Typography id="modal-modal-title" variant="h5" style={{color: 'white', marginBottom: '15px'}}>
-                    <b>Add a Task</b>
+                    <b>Add a Note</b>
                 </Typography>
             </div>
                 {msg && 

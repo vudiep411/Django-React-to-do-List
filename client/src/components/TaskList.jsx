@@ -33,7 +33,7 @@ const TaskList = ({searchText}) => {
                 </div>
                   <Typography 
                     variant='body2' 
-                    style={{color: 'rgb(200,200,200)', marginBottom: '5px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow:'ellipsis'}}
+                    style={{color: 'rgb(200,200,200)', marginBottom: '5px', overflow: 'hidden', whiteSpace: 'pre-line', textOverflow:'ellipsis'}}
                   >
                     {task.body}
                   </Typography>
