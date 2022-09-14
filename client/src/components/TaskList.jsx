@@ -28,15 +28,16 @@ const TaskList = ({searchText}) => {
     ) : (
       <Paper style={{ backgroundColor: 'rgb(64,64,64)'}}>
           {filtered?.map((task) => (
-            <div key={task.id} onClick={() => navigate(`/tasks/${task.id}`)}>
-              <div style={{cursor: 'pointer', padding: '7px'}}>
+            <div key={task.id}>
+              <div style={{ padding: '7px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                  <Typography variant='h6' style={{color: 'white'}}>{task.title}</Typography>
+                  <Typography variant='h6' style={{color: 'white', cursor: 'pointer'}} onClick={() => navigate(`/tasks/${task.id}`)}>{task.title}</Typography>
                   <Button color='secondary'><DeleteIcon fontSize='small' onClick={() => {handleDelete(task.id)}}/></Button>
                 </div>
-                  <Typography 
+                  <Typography
+                    onClick={() => navigate(`/tasks/${task.id}`)}
                     variant='body2' 
-                    style={{color: 'rgb(200,200,200)', marginBottom: '5px', overflow: 'hidden', whiteSpace: 'no-wrap', textOverflow:'ellipsis'}}
+                    style={{color: 'rgb(200,200,200)', marginBottom: '5px', overflow: 'hidden', whiteSpace: 'no-wrap', textOverflow:'ellipsis', cursor: 'pointer'}}
                   >
                     {task.body}
                   </Typography>

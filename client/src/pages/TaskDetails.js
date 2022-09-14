@@ -16,7 +16,7 @@ const TaskDetails = () => {
     <Container maxWidth='sm'>
       <Paper style={{backgroundColor: 'rgb(64,64,64)', padding: '10px', minHeight: '90vh'}}>
         <div style={{display: 'flex', justifyContent: 'center'}}>
-          <Typography variant='h4' style={{color: 'white'}}>{task?.title}</Typography>
+          <Typography variant='h4' style={{color: 'white', overflow: 'clip'}}>{task?.title}</Typography>
         </div>
         <br/>
         <Divider style={{backgroundColor: 'rgb(32,32,32)'}}/>
