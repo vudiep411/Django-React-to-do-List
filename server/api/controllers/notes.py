@@ -32,6 +32,7 @@ def updateNote(request, id):
     data = request.data
     note = Note.objects.get(id=id)
     note.body = data['body']
+    note.title = data['title']
     note.save()
     serializer = NoteSerializer(note)
     return Response(serializer.data)

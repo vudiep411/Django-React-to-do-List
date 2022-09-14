@@ -39,6 +39,7 @@ const AddTasks = ({width}) => {
       setMsg('')
       setTitle('')
     };
+
     const handleSubmit = () => {
       if(title && body)
       {
@@ -49,9 +50,26 @@ const AddTasks = ({width}) => {
         setMsg('Please Enter all fields !')
     }
 
+    const handleKeyDown = (e) => {
+      if (e.key === 'Tab')
+      {
+        e.preventDefault()
+        const cursorPosition = e.target.selectionStart;
+        const cursorEndPosition = e.target.selectionEnd;
+        const tab = '\t';
+        e.target.value =
+          body.substring(0, cursorPosition) +
+          tab +
+          body.substring(cursorEndPosition);      
+        setBody(e.target.value)
+        e.target.selectionStart = cursorPosition + 1;
+        e.target.selectionEnd = cursorPosition + 1;
+      }
+    }
+
   return (
     <div>
-      <Button onClick={handleOpen}><AddCircleIcon fontSize="large" style={{color: 'rgb(255,127,80)'}}/></Button>
+      <Button onClick={handleOpen} style={{}}><AddCircleIcon fontSize="large" style={{color: 'rgb(255,127,80)'}}/></Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -77,6 +95,7 @@ const AddTasks = ({width}) => {
                 />
                 <Typography variant="h6" style={{color: 'white'}}>Description:</Typography>
                 <TextField
+                    onKeyDown={(e) => handleKeyDown(e)}
                     onChange={(e) => setBody(e.target.value)} 
                     variant='outlined' 
                     inputProps={{ className: classes.input }} 

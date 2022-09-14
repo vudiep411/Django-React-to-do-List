@@ -11,16 +11,16 @@ const Navbar = () => {
     <Box sx={{ flexGrow: 1 }} style={{marginBottom: '30px'}}>
         <AppBar position="static" style={{backgroundColor: 'rgb(64,64,64)'}}>
             <Toolbar>
-            <Typography 
-                variant="h5" 
-                component="div" 
-                sx={{ flexGrow: 1 }} 
-                style={{cursor: 'pointer'}}
-                onClick={() => navigate('/')}
-                >
-                <b>Notes</b>
-            </Typography>
-            <Button color="inherit">Login</Button>
+                <Typography 
+                    variant="h5" 
+                    component="div" 
+                    sx={{ flexGrow: 1 }} 
+                    style={{cursor: 'pointer', color: 'whitesmoke'}}
+                    onClick={() => navigate('/')}
+                    >
+                    <b>Notes</b>
+                </Typography>
+                <Button color="inherit">Login</Button>
             </Toolbar>
         </AppBar>
     </Box>
