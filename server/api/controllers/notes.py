@@ -2,6 +2,7 @@ from ..serializers import NoteSerializer
 from ..models import Note
 from rest_framework.response import Response
 from django.http import JsonResponse
+from rest_framework import permissions
 
 def getAllNotes(request):
     notes = Note.objects.all()

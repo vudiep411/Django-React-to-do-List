@@ -1,10 +1,10 @@
 from django.urls import path
-from django.urls import path, include
+from django.urls import path
 from . import views
 
 
 urlpatterns = [
-    path('', views.getRoutes),
-    path('notes/', views.getNotes),
-    path('notes/<str:id>/', views.getNote)   #<str:id> -> str=type id=name
+    path('views', views.getRoutes),
+    path('', views.getNotes.as_view()),
+    path('<str:id>/', views.getNote.as_view()),   #<str:id> -> str=type id=name
 ]
