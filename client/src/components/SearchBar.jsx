@@ -15,7 +15,7 @@ const SearchBar = ({width, setSearchText, searchText}) => {
                 id="outlined-adornment-amount"
                 onChange={(e) => {setSearchText(e.target.value)}}
                 startAdornment={<InputAdornment position="start"><SearchIcon/></InputAdornment>}
-                placeholder="Filter Tasks list"
+                placeholder="Filter Notes list"
                 style={{backgroundColor: 'white'}}
                 value={searchText}
             />

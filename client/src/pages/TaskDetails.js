@@ -13,11 +13,13 @@ const TaskDetails = () => {
   const [body, setBody] = useState()
   const [title, setTitle] = useState()
   const [isEdit, setIsEdit] = useState(false)
+  const [time, setTime] = useState('')
   useEffect(() => {
     const fetch = async () =>{
       const data  = await dispatch(getOneTask(id))
       setBody(data.body)
       setTitle(data.title)
+      setTime(data.updated)
     }
     fetch()
   }, [id, dispatch])
@@ -55,10 +57,23 @@ const TaskDetails = () => {
       e.target.selectionEnd = cursorPosition + 1;
     }
   }
-
+  const timeFormat = (time) => {
+    let format = ""
+    for(let i = 0; i < time.length; i++)
+    {
+      if(time[i] === 'T')
+        break;
+      if(time[i] === '-')
+        format += '/'
+      else
+        format += time[i]
+    }
+    return format
+  }
   return (
     <Container maxWidth='sm'>
       <Paper style={{backgroundColor: 'rgb(64,64,64)', padding: '10px', minHeight: '80vh'}}>
+        <Typography variant='body2' style={{color: 'rgb(120,120,120)'}}>{timeFormat(time)}</Typography>
         <div style={{display: 'flex', justifyContent: 'center'}}>
           { !isEdit ? (
             <div style={{display: 'flex', marginTop: '5px'}}>
