@@ -83,11 +83,11 @@ const Dropdown = ({username}) => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={logout}>
+        <MenuItem onClick={logout} style={{padding: '10px'}}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          Logout
+          <Typography style={{marginRight: '10px'}}>Logout</Typography>
         </MenuItem>
       </Menu>       
     </div>
