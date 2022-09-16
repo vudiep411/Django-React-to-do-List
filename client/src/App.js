@@ -1,7 +1,9 @@
 import React from 'react'
 import Home from './pages/Home'
-import Navbar from './components/Navbar';
 import TaskDetails from './pages/TaskDetails';
+import Login from './pages/Login';
+import Navbar from './components/Navbar';
+import PrivateRoutes from './components/PrivateRoutes';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 function App() {
   return (
@@ -9,8 +11,9 @@ function App() {
       <Router>
         <Navbar/>
          <Routes>
-           <Route exact path="/" element={<Home/>}/>
-           <Route exact path="/tasks/:id" element={<TaskDetails/>}/>
+           <Route exact path="/" element={<PrivateRoutes><Home/></PrivateRoutes>}/>
+           <Route exact path="/tasks/:id" element={<PrivateRoutes><TaskDetails/></PrivateRoutes>}/>
+           <Route exact path="/login" element={<Login/>}/>
          </Routes> 
      </Router>
     </div>

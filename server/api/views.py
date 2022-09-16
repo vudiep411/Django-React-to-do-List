@@ -18,8 +18,8 @@ def getRoutes(request):
 
 # Get all Notes
 class getNotes(APIView):
-    # authentication_classes = (TokenAuthentication,)
-    # permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
     def get(self, request):
         return getAllNotes(request)
 
@@ -28,8 +28,8 @@ class getNotes(APIView):
 
 # Get one Note
 class getNote(APIView):
-    # authentication_classes = (TokenAuthentication,)
-    # permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
     def get(self, request, id):
         if request.method == 'GET':
             return getOneNote(request, id)

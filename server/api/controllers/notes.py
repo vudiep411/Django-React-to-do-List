@@ -3,9 +3,12 @@ from ..models import Note
 from rest_framework.response import Response
 from django.http import JsonResponse
 from rest_framework import permissions
+from django.contrib.auth.models import User
 
 def getAllNotes(request):
-    notes = Note.objects.all()
+    user_id = request.GET.get('id', '')
+    user = User.objects.get(id=user_id)
+    notes = Note.objects.filter(createdBy=user)
     serializer = NoteSerializer(notes, many=True)    # Serialize it 
     return Response(serializer.data)
 
@@ -16,9 +19,11 @@ def getOneNote(request, id):
 
 def addNote(request):
     data = request.data
+    user = User.objects.get(id=data["createdBy"])
     note = Note.objects.create(
         title = data["title"],
-        body = data["body"]
+        body = data["body"],
+        createdBy = user
     )
     serializer = NoteSerializer(note)
     return Response(serializer.data)

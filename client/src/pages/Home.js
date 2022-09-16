@@ -12,9 +12,10 @@ import { getTasks } from '../actions/tasks'
 const Home = () => {
     const dispatch = useDispatch()
     const [searchText, setSearchText] = useState("")
-
+    const user  = JSON.parse(localStorage.getItem('profile'));
+    const id = user?.user.id
     useEffect(() => {
-      dispatch(getTasks())
+      dispatch(getTasks(id))
     }, [dispatch])
 
     // const handleUpdate = async (id) => {

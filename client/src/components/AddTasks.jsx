@@ -31,6 +31,7 @@ const AddTasks = ({width}) => {
     const [title, setTitle] = useState('')
     const [open, setOpen] = React.useState(false);
     const [msg, setMsg] = useState()
+    const user  = JSON.parse(localStorage.getItem('profile'));
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
@@ -43,7 +44,7 @@ const AddTasks = ({width}) => {
     const handleSubmit = () => {
       if(title && body)
       {
-        dispatch(addTask({title: title, body: body}))
+        dispatch(addTask({title: title, body: body, createdBy: user.user.id}))
         handleClose()
       }
       else
