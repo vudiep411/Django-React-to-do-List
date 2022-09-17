@@ -58,7 +58,7 @@ python manage.py runserver
 cd client
 npm start
 ```
-> ⚠ Then, the client will be started at http://127.0.0.1:3000/
+> ⚠ Then, the client will be started at http://127.0.0.1:3000/ <br/>
 > ⚠ Then, the development server will be started at http://127.0.0.1:8000/
 
 #
