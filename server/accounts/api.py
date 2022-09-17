@@ -2,6 +2,7 @@ from rest_framework import generics, permissions
 from rest_framework.response import Response
 from knox.models import AuthToken
 from .serializers import UserSerializer, RegisterSerializer, LoginSerializer
+from django.http import JsonResponse
 
 # Register API
 class RegisterAPI(generics.GenericAPIView):
@@ -9,7 +10,9 @@ class RegisterAPI(generics.GenericAPIView):
 
   def post(self, request, *args, **kwargs):
     serializer = self.get_serializer(data=request.data)
-    serializer.is_valid(raise_exception=True)
+    if not serializer.is_valid():
+      return JsonResponse({'message' : 'Wrong username or password'})
+
     user = serializer.save()
     return Response({
       "user": UserSerializer(user, context=self.get_serializer_context()).data,

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%q1^i$7mz0h_9!=yfya7k58=pf*)5i61e5ux*o_%x%x%1f_ed8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['web-notes-todo-app.herokuapp.com', 'http://localhost:8000/']
+ALLOWED_HOSTS = ['web-notes-todo-app.herokuapp.com', 'localhost:8000',]
 
 
 # Application definition
