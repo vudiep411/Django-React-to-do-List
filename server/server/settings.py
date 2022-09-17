@@ -62,7 +62,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST = (
-#     'http://localhost:8081',
+#     'https://main.d5h9pd5jh16g1.amplifyapp.com/',
 # )
 
 ROOT_URLCONF = 'server.urls'
