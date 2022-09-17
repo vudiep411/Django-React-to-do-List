@@ -1,3 +1,4 @@
+from signal import raise_signal
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from knox.models import AuthToken
@@ -10,8 +11,8 @@ class RegisterAPI(generics.GenericAPIView):
 
   def post(self, request, *args, **kwargs):
     serializer = self.get_serializer(data=request.data)
-    if not serializer.is_valid():
-      return JsonResponse({'message' : 'Wrong username or password'})
+    serializer.is_valid(raise_exception=True)
+
 
     user = serializer.save()
     return Response({

@@ -25,7 +25,7 @@ const Navbar = () => {
                     <b>Notes</b>
                 </Typography>
                 {user &&                 
-                    <Dropdown username={user.user.username}/>
+                    <Dropdown username={user.user?.username}/>
                 }
             </Toolbar>
         </AppBar>

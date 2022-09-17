@@ -19,4 +19,4 @@ export const updateTask = (id, updated) => API.put(`/notes/${id}/`, updated)
 
 
 export const signIn = (formData) => API.post(`/api/auth/login`, formData)
-export const signUp = (formData) => API.post(`/api/auth/login`, formData)
+export const signUp = (formData) => API.post(`/api/auth/register`, formData)

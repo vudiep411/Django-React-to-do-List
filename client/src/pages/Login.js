@@ -35,7 +35,10 @@ const Login = () => {
       {
         setAlertMessage("Please enter all required fields")
       }
-  
+      else if(!isSignup && (!formData.username || !formData.password))
+      {
+        setAlertMessage("Please enter all required fields")
+      }
       // Check if passwords are matched
       else if(isSignup && (formData.password !== formData.confirmPassword))
       {
@@ -46,19 +49,11 @@ const Login = () => {
       else
       {
         if(isSignup)
-        {
-          const { data } = await dispatch(signup(formData, navigate))
-
-          if(!data)
-            setAlertMessage('Password and Username do not match')
-        }
+            await dispatch(signup(formData, navigate, setAlertMessage))
+        
         else
-        {
-          const { data } = await dispatch(signin(formData, navigate))
-          if(!data)        
-            setAlertMessage('username already exists')
-          
-        }
+            await dispatch(signin(formData, navigate, setAlertMessage))     
+        
       }  
     }
   return (
